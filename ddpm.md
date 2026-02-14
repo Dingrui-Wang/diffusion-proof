@@ -1,5 +1,8 @@
 
-# DDPM 后验均值公式推导（GitHub 兼容版）
+# DDPM 后验均值公式推导
+这里对 **DDPM 后验均值公式** 进行更加详细、完整的数学推导，作为 B 站 UP 主 **Nik_Li** 视频 **《一个视频看懂扩散模型 DDPM 原理推导 | AI 绘画底层模型》** 的补充。
+
+🎥 原视频链接: [一个视频看懂扩散模型 DDPM 原理推导 | AI 绘画底层模型](https://www.bilibili.com/video/BV1p24y1K7Pf/?share_source=copy_web&vd_source=8fc6a637b118130ca21b2780805ce690)
 
 ## 前置约定
 
