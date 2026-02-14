@@ -7,53 +7,53 @@
 
 1. **前向扩散系数定义**
 
-   * 单步噪声系数：
+* 单步噪声系数：
 
-     ```math
-     \beta_t \in (0,1), \quad \alpha_t = 1 - \beta_t
-     ```
+```math
+\beta_t \in (0,1), \quad \alpha_t = 1 - \beta_t
+```
 
-   * 累计乘积：
+* 累计乘积：
 
-     ```math
-     \bar{\alpha}_t = \prod_{i=1}^t \alpha_i
-     ```
+```math
+\bar{\alpha}_t = \prod_{i=1}^t \alpha_i
+```
 
-     满足递推关系：
+满足递推关系：
 
-     ```math
-     \bar{\alpha}_t = \alpha_t \cdot \bar{\alpha}_{t-1}
-     ```
+```math
+\bar{\alpha}_t = \alpha_t \cdot \bar{\alpha}_{t-1}
+```
 
 2. **高斯分布形式**
 
-   所有分布均为**各向同性高斯分布**，其对数概率（省略归一化常数）：
+所有分布均为**各向同性高斯分布**，其对数概率（省略归一化常数）：
 
-   ```math
-   \log \mathcal{N}(z; \mu, \sigma^2 I)
-   \propto -\frac{\|z - \mu\|^2}{2\sigma^2}
-   ```
+```math
+\log \mathcal{N}(z; \mu, \sigma^2 I)
+\propto -\frac{\|z - \mu\|^2}{2\sigma^2}
+```
 
 3. **前向扩散过程的三个分布**
 
-   * 单步加噪：
+* 单步加噪：
 
-     ```math
-     q(x_t|x_{t-1}) = \mathcal{N}(x_t; \sqrt{\alpha_t}x_{t-1}, \beta_t I)
-     ```
+```math
+q(x_t|x_{t-1}) = \mathcal{N}(x_t; \sqrt{\alpha_t}x_{t-1}, \beta_t I)
+```
 
-   * 直接加噪到第 $t$ 步：
+* 直接加噪到第 $t$ 步：
 
-     ```math
-     q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1-\bar{\alpha}_t) I)
-     ```
+```math
+q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1-\bar{\alpha}_t) I)
+```
 
-   * 第 $t-1$ 步结果：
+* 第 $t-1$ 步结果：
 
-     ```math
-     q(x_{t-1}|x_0) = 
-     \mathcal{N}(x_{t-1}; \sqrt{\bar{\alpha}_{t-1}}x_0, (1-\bar{\alpha}_{t-1}) I)
-     ```
+```math
+q(x_{t-1}|x_0) = 
+\mathcal{N}(x_{t-1}; \sqrt{\bar{\alpha}_{t-1}}x_0, (1-\bar{\alpha}_{t-1}) I)
+```
 
 ---
 
